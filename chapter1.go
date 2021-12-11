@@ -234,8 +234,7 @@ func Fetch() {
 
 func P1_8() {
 	for _, url := range os.Args[1:] {
-		//fmt.Println("url: ", url)
-		//ret := strings.HasPrefix(s, "he")
+
 		if !strings.HasPrefix(url, "http") {
 			url = "http://" + url
 		}
