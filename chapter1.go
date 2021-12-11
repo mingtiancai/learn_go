@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io/ioutil"
 	"os"
 	"strings"
 )
@@ -86,6 +87,25 @@ func Dup2() {
 	for line, n := range counts {
 		if n > 1 {
 			fmt.Printf("%d\t%s\n", n, line)
+		}
+	}
+}
+
+func Dup3() {
+	counts := make(map[string]int)
+	for _, filename := range os.Args[1:] {
+		data, err := ioutil.ReadFile(filename)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "Dup3: %v\n", err)
+			continue
+		}
+		for _, line := range strings.Split(string(data), "\n") {
+			counts[line]++
+		}
+		for line, n := range counts {
+			if n > 1 {
+				fmt.Printf("%d\t%s\t\n", n, line)
+			}
 		}
 	}
 }

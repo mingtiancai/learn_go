@@ -16,5 +16,6 @@ func main() {
 	//P1_2()
 	//Dup1()
 	//Dup2()
+	Dup3()
 
 }
