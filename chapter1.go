@@ -36,3 +36,10 @@ func Echo3() {
 func P1_1() {
 	fmt.Println(os.Args[0])
 }
+
+//1.2
+func P1_2() {
+	for index, arg := range os.Args[1:] {
+		fmt.Println(index, " ", arg)
+	}
+}

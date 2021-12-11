@@ -11,5 +11,7 @@ func main() {
 	//Echo()
 	//TestPrint()
 	//Echo2()
-	Echo3()
+	//Echo3()
+	//P1_1()
+	P1_2()
 }
