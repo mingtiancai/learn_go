@@ -70,7 +70,6 @@ func Dup2() {
 	counts := make(map[string]int)
 	files := os.Args[1:]
 	if len(files) == 0 {
-		//countLines(os.Stdin, counts)
 		return
 	} else {
 		for _, arg := range files {
