@@ -31,3 +31,8 @@ func Echo2() {
 func Echo3() {
 	fmt.Println(strings.Join(os.Args[1:], " "))
 }
+
+//1.1
+func P1_1() {
+	fmt.Println(os.Args[0])
+}
