@@ -17,5 +17,6 @@ func main() {
 	//Dup1()
 	//Dup2()
 	//Dup3()
-	ShowLissajous()
+	//ShowLissajous()
+	P1_5()
 }
