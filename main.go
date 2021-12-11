@@ -20,6 +20,7 @@ func main() {
 	//ShowLissajous()
 	//P1_5()
 	//Fetch()
-	P1_8()
+	//P1_8()
 	//P1_9()
+	FetchAll()
 }
