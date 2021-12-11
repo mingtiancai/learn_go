@@ -8,7 +8,8 @@ func main() {
 
 	fmt.Println("hello world")
 
-	//echo()
-	//testPrint()
-	echo2()
+	//Echo()
+	//TestPrint()
+	//Echo2()
+	Echo3()
 }

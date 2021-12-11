@@ -3,13 +3,14 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
-func testPrint() {
+func TestPrint() {
 	fmt.Println("test")
 }
 
-func echo() {
+func Echo() {
 	var s, sep string
 	for i := 1; i < len(os.Args); i++ {
 		s += sep + os.Args[i]
@@ -18,11 +19,15 @@ func echo() {
 	fmt.Println(s)
 }
 
-func echo2() {
+func Echo2() {
 	s, sep := "", ""
 	for _, arg := range os.Args[1:] {
 		s += sep + arg
 		sep = " "
 	}
 	fmt.Println(s)
+}
+
+func Echo3() {
+	fmt.Println(strings.Join(os.Args[1:], " "))
 }
