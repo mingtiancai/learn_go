@@ -19,5 +19,6 @@ func main() {
 	//Dup3()
 	//ShowLissajous()
 	//P1_5()
-	Fetch()
+	//Fetch()
+	P1_9()
 }
