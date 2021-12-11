@@ -202,7 +202,7 @@ func Lissajous2(out io.Writer) {
 	gif.EncodeAll(out, &anim)
 }
 
-func P_1_5() {
+func P1_5() {
 	rand.Seed(time.Now().UTC().UnixNano())
 	if len(os.Args) > 1 && os.Args[1] == "web" {
 		handle := func(w http.ResponseWriter, r *http.Request) {
