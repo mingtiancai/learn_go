@@ -25,5 +25,6 @@ func main() {
 	//FetchAll()
 	//Server1()
 	//Server2()
-	Server3()
+	//Server3()
+	P1_12()
 }
