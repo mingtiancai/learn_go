@@ -287,6 +287,7 @@ func Fetch2(url string, ch chan<- string) {
 		return
 	}
 	secs := time.Since(start).Seconds()
+	fmt.Println("url: ", url)
 	ch <- fmt.Sprintf("%.2fs %7d %s", secs, nbytes, url)
 }
 
@@ -304,4 +305,13 @@ func FetchAll() {
 
 func Sum(a int, b int) int {
 	return a + b
+}
+
+func HandleServer(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "URL.Path = %q\n", r.URL.Path)
+}
+
+func Server1() {
+	http.HandleFunc("/", HandleServer)
+	log.Fatal(http.ListenAndServe("localhost:8000", nil))
 }
