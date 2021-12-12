@@ -12,3 +12,11 @@ func UseConst() {
 	fmt.Printf("boiling point = %g F or %g C\n", f, c)
 
 }
+
+func UsePtr() {
+	x := 1
+	p := &x
+	fmt.Println(*p)
+	*p = 2
+	fmt.Println(x)
+}

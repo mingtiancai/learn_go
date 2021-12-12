@@ -28,5 +28,5 @@ func main() {
 	//Server3()
 	//P1_12()
 	//UseConst()
-
+	UsePtr()
 }
