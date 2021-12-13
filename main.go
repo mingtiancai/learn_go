@@ -27,6 +27,8 @@ func main() {
 	//Server2()
 	//Server3()
 	//P1_12()
-	//UseConst()
-	UsePtr()
+	//C2UseConst()
+	//C2UsePtr()
+	//C2Echo4()
+	C2UseFlag()
 }

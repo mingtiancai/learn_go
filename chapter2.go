@@ -1,7 +1,9 @@
 package main
 
 import (
+	"flag"
 	"fmt"
+	"strings"
 )
 
 const boilingF = 121.0
@@ -13,6 +15,11 @@ func C2UseConst() {
 
 }
 
+func C2F() *int {
+	i := 1
+	return &i
+}
+
 func C2UsePtr() {
 	x := 1
 	p := &x
@@ -21,4 +28,26 @@ func C2UsePtr() {
 	*p = 2
 	fmt.Println(x)
 
+	//test local variant ptr
+	fmt.Println("C2F: ", C2F(), "  ", *C2F())
+	fmt.Println("C2F: ", C2F(), "  ", *C2F())
+	fmt.Println("C2F: ", C2F(), "  ", *C2F())
+}
+
+func C2Echo4() {
+	var n = flag.Bool("n", false, "omit trailing newline")
+	var sep = flag.String("s", "    ", "separator")
+	flag.Parse()
+	fmt.Println(flag.Args())
+	fmt.Println(strings.Join(flag.Args(), *sep))
+	if !*n {
+		fmt.Println()
+	}
+}
+
+func C2UseFlag() {
+	host := flag.String("host", "127.0.0.1", "请输入host地址")
+	port := flag.Int("port", 3306, "请输入端口号")
+	flag.Parse() // 解析参数
+	fmt.Printf("%s:%d\n", *host, *port)
 }
