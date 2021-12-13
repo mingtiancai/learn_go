@@ -51,3 +51,13 @@ func C2UseFlag() {
 	flag.Parse() // 解析参数
 	fmt.Printf("%s:%d\n", *host, *port)
 }
+
+type Celsius float64
+type Fahrenheit float64
+
+func C2UseType() {
+	var c Celsius = 10.0
+	var f Fahrenheit = 12.0
+	fmt.Println(c)
+	//fmt.Println(c - f)  //即使地层类型相同也不可以进行云运算
+}
