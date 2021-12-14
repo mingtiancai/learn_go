@@ -4,6 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"strings"
+
+	"https://github.com/adonovan/gopl.io/tree/master/ch2/tempconv"
 )
 
 const boilingF = 121.0
@@ -58,6 +60,11 @@ type Fahrenheit float64
 func C2UseType() {
 	var c Celsius = 10.0
 	var f Fahrenheit = 12.0
-	fmt.Println(c)
+	fmt.Println("c: ", c)
 	//fmt.Println(c - f)  //即使地层类型相同也不可以进行云运算
+	fmt.Println("f: ", f)
+	f = Fahrenheit(c)
+	fmt.Println("f: ", f)
+
+	f1 := tempconv.Fahrenheit(t)
 }

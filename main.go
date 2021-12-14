@@ -30,5 +30,6 @@ func main() {
 	//C2UseConst()
 	//C2UsePtr()
 	//C2Echo4()
-	C2UseFlag()
+	//C2UseFlag()
+	C2UseType()
 }
