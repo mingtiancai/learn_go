@@ -31,5 +31,8 @@ func main() {
 	//C2UsePtr()
 	//C2Echo4()
 	//C2UseFlag()
-	C2UseType()
+	//C2UseType()
+	//C3UseBit()
+	//C3UseFor()
+	C3UsePrint()
 }

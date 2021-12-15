@@ -4,8 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"strings"
-
-	"https://github.com/adonovan/gopl.io/tree/master/ch2/tempconv"
 )
 
 const boilingF = 121.0
@@ -66,5 +64,4 @@ func C2UseType() {
 	f = Fahrenheit(c)
 	fmt.Println("f: ", f)
 
-	f1 := tempconv.Fahrenheit(t)
 }
