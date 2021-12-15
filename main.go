@@ -31,5 +31,6 @@ func main() {
 	//C3UseBit()
 	//C3UseFor()
 	//C3UsePrint()
-	C3Surface()
+	//C3Surface()
+	C3UseBool()
 }

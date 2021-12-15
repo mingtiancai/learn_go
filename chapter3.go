@@ -76,3 +76,10 @@ func C3Surface() {
 	}
 	fmt.Println("</svg>")
 }
+
+func C3UseBool() {
+	s := ""
+	var t bool
+	t = s != "" && s[0] == 'x'
+	fmt.Println(t)
+}
