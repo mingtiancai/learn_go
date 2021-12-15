@@ -1,12 +1,8 @@
 package main
 
-import (
-	"fmt"
-)
-
 func main() {
 
-	fmt.Println("hello world")
+	//fmt.Println("hello world")
 
 	//Echo()
 	//TestPrint()
@@ -34,5 +30,6 @@ func main() {
 	//C2UseType()
 	//C3UseBit()
 	//C3UseFor()
-	C3UsePrint()
+	//C3UsePrint()
+	C3Surface()
 }
