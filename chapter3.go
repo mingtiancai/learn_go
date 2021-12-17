@@ -1,8 +1,11 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
 	"math"
+	"time"
+	"unicode/utf8"
 )
 
 func C3UseBit() {
@@ -82,4 +85,53 @@ func C3UseBool() {
 	var t bool
 	t = s != "" && s[0] == 'x'
 	fmt.Println(t)
+}
+
+func C3UseUtf8() {
+	s := "hello, 世界"
+	for i := 0; i < len(s); {
+		r, size := utf8.DecodeRuneInString(s[i:])
+		fmt.Printf("%d\t%c\n", i, r)
+		i += size
+	}
+}
+
+func C3IntsToString(values []int) string {
+	var buf bytes.Buffer
+	buf.WriteByte('[')
+	for i, v := range values {
+		if i > 0 {
+			buf.WriteString(", ")
+		}
+		fmt.Fprintf(&buf, "%d", v)
+	}
+	buf.WriteByte(']')
+	return buf.String()
+}
+
+func C3PrintInts() {
+	fmt.Println(C3IntsToString([]int{1, -2, 3}))
+}
+
+type Flags uint
+
+const (
+	FlagUp Flags = 1 << iota
+	FlagBroadcast
+	FlagLoopback
+	FlagPointToPoint
+	FlagMulticast
+)
+
+func C3UseConst() {
+	const noDelay time.Duration = 0
+	const timeout = 5 * time.Minute
+	fmt.Printf("%T %[1]v\n", noDelay)
+	fmt.Printf("%T %[1]v\n", timeout)
+	fmt.Printf("%T %[1]v\n", time.Minute)
+	fmt.Println("FlagUp ", FlagUp)
+	fmt.Println("FlagBroadcast ", FlagBroadcast)
+	fmt.Println("FlagLoopback ", FlagLoopback)
+	fmt.Println("FlagPointToPoint ", FlagPointToPoint)
+	fmt.Println("FlagMulticast ", FlagMulticast)
 }

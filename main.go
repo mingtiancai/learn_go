@@ -32,5 +32,8 @@ func main() {
 	//C3UseFor()
 	//C3UsePrint()
 	//C3Surface()
-	C3UseBool()
+	//C3UseBool()
+	//C3UseUtf8()
+	//C3PrintInts()
+	C3UseConst()
 }
