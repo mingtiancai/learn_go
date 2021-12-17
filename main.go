@@ -35,5 +35,6 @@ func main() {
 	//C3UseBool()
 	//C3UseUtf8()
 	//C3PrintInts()
-	C3UseConst()
+	//C3UseConst()
+	C4UseArray()
 }
