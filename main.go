@@ -43,6 +43,6 @@ func main() {
 	// C4ShowSliceCapChange()
 	// C4UseRemove()
 	// C4UseMap()
-	C4UseJson()
-
+	// C4UseJson()
+	C5PrintFunc()
 }
