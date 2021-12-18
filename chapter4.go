@@ -5,6 +5,7 @@ import (
 	"crypto/sha512"
 	"fmt"
 	"os"
+	"sort"
 )
 
 func C4UseArray() {
@@ -82,4 +83,49 @@ func C4Remove(slice []int, i int) []int {
 func C4UseRemove() {
 	s := []int{5, 6, 7, 8, 9}
 	fmt.Println(C4Remove(s, 2))
+}
+
+func C4PrintMap(m map[string]int) {
+	for k, v := range m {
+		fmt.Println("key: ", k, " , value: ", v)
+	}
+	fmt.Println(m)
+	fmt.Println()
+}
+
+func C4UseMap() {
+	ages := map[string]int{
+		"alice":   31,
+		"charlie": 34,
+		"gg":      43,
+		"tt":      71,
+		"ll":      20,
+	}
+
+	// C4PrintMap(ages)
+	// delete(ages, "s")
+	// C4PrintMap(ages)
+	// delete(ages, "alice")
+	// C4PrintMap(ages)
+
+	for i := 0; i < 10; i++ {
+		C4PrintMap(ages)
+	}
+
+	var names []string
+	for name := range ages {
+		names = append(names, name)
+	}
+	sort.Strings(names)
+
+	for i := 0; i < 10; i++ {
+		for _, name := range names {
+			fmt.Printf("%s\t%d\n", name, ages[name])
+		}
+		fmt.Println()
+	}
+
+	names2 := make([]string, 0, len(ages))
+	fmt.Println(len(names2), " ", cap(names2))
+
 }

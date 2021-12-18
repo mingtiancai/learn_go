@@ -41,5 +41,7 @@ func main() {
 	//C4UseSlice()
 	//C4UseAppendInt()
 	// C4ShowSliceCapChange()
-	C4UseRemove()
+	// C4UseRemove()
+	// C4UseMap()
+	C4UseMap()
 }
