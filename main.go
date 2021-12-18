@@ -38,6 +38,8 @@ func main() {
 	//C3UseConst()
 	//C4UseArray()
 	//C4P4_2()
-	// C4UseSlice()
-	C4UseAppendInt()
+	//C4UseSlice()
+	//C4UseAppendInt()
+	// C4ShowSliceCapChange()
+	C4UseRemove()
 }

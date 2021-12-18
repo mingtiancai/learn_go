@@ -65,3 +65,21 @@ func C4UseAppendInt() {
 	fmt.Println(a1)
 	fmt.Println(a2)
 }
+
+func C4ShowSliceCapChange() {
+	var s []int
+	for i := 0; i < 10; i++ {
+		fmt.Println("cap： ", cap(s), "  len: ", len(s))
+		s = append(s, i)
+	}
+}
+
+func C4Remove(slice []int, i int) []int {
+	slice[i] = slice[len(slice)-1]
+	return slice[:len(slice)-1]
+}
+
+func C4UseRemove() {
+	s := []int{5, 6, 7, 8, 9}
+	fmt.Println(C4Remove(s, 2))
+}
