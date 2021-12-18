@@ -3,7 +3,9 @@ package main
 import (
 	"crypto/sha256"
 	"crypto/sha512"
+	"encoding/json"
 	"fmt"
+	"log"
 	"os"
 	"sort"
 )
@@ -127,5 +129,25 @@ func C4UseMap() {
 
 	names2 := make([]string, 0, len(ages))
 	fmt.Println(len(names2), " ", cap(names2))
+}
+
+func C4UseJson() {
+	type Movie struct {
+		Title  string
+		Year   int  `json:"released"`
+		Color  bool `json:"color,omitempty"`
+		Actors []string
+	}
+
+	var movies = []Movie{
+		{Title: "a", Year: 1942, Color: true, Actors: []string{"Humphrey Bogart", "Ingrid Bergman"}},
+	}
+
+	//data, err := json.Marshal(movies)
+	data, err := json.MarshalIndent(movies, "", "   ")
+	if err != nil {
+		log.Fatalf("JSON marshaling failed: %s", err)
+	}
+	fmt.Printf("%s\n", data)
 
 }
