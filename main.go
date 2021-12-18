@@ -36,5 +36,8 @@ func main() {
 	//C3UseUtf8()
 	//C3PrintInts()
 	//C3UseConst()
-	C4UseArray()
+	//C4UseArray()
+	//C4P4_2()
+	// C4UseSlice()
+	C4UseAppendInt()
 }
