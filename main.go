@@ -51,5 +51,7 @@ func main() {
 	// C5UseRawReturn()
 	// C5UseWait()
 	// C5UseFunc()
+	// C5UseDefer()
+	C5UsePanic()
 
 }

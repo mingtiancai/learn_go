@@ -6,6 +6,7 @@ import (
 	"math"
 	"net/http"
 	"os"
+	"runtime"
 	"strings"
 	"time"
 
@@ -163,4 +164,49 @@ func C5Title(url string) error {
 	// }
 	// forEachNode(doc, visitNode, nil)
 	return nil
+}
+
+func trace(msg string) func() {
+	start := time.Now()
+
+	fmt.Println("1")
+	log.Printf("enter %s", msg)
+	fmt.Println("2")
+	return func() {
+		log.Printf("exit %s (%s)", msg, time.Since(start))
+	}
+}
+
+func C5BigSlowOperation() {
+	defer trace("bigSlowOperation")()
+	time.Sleep(10 * time.Second)
+}
+
+func C5Double(x int) (result int) {
+	defer func() { fmt.Printf("double(%d) = %d\n", x, result) }()
+	return x + x
+}
+
+func C5UseDefer() {
+	C5BigSlowOperation()
+	fmt.Println(C5Double(8))
+}
+
+func C5PrintStack() {
+	var buf [4096]byte
+	n := runtime.Stack(buf[:], false)
+	os.Stdout.Write(buf[:n])
+}
+
+func C5f(x int) {
+	fmt.Printf("f(%d)\n", x+0/x)
+	defer fmt.Printf("defer %d\n", x)
+	C5f(x - 1)
+
+}
+
+func C5UsePanic() {
+	// panic("d")
+
+	C5f(3)
 }
