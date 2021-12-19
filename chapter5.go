@@ -2,8 +2,12 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math"
+	"net/http"
 	"os"
+	"strings"
+	"time"
 
 	"golang.org/x/net/html"
 )
@@ -64,4 +68,71 @@ func RawReturn() (a int, b int) {
 
 func C5UseRawReturn() {
 	fmt.Println(RawReturn())
+}
+
+func C5WaitForServer(url string) error {
+	const timeout = 5 * time.Second
+	deadline := time.Now().Add(timeout)
+	for tries := 0; time.Now().Before(deadline); tries++ {
+		resp, err := http.Get(url)
+		if err == nil {
+			fmt.Println(resp)
+			return nil
+		}
+		log.Printf("server not responding (%s) ; retrying...", err)
+		time.Sleep(time.Second << uint(tries))
+	}
+	return fmt.Errorf("server %s failed to respond after %s", url, timeout)
+}
+
+func C5UseWait() {
+	err := C5WaitForServer("https://ac.scmor.com/")
+	if err != nil {
+		fmt.Println("get failed")
+	}
+
+}
+func C5Add1(r rune) rune {
+	return r + 1
+}
+
+func C5Sum(vals ...int) int {
+	total := 0
+	for _, val := range vals {
+		total += val
+	}
+	return total
+}
+
+func C5Min(args ...int) (int, error) {
+	n := len(args)
+	fmt.Println("n: ", n)
+	if n == 0 {
+		err := fmt.Errorf("no args")
+		return 0, err
+	} else {
+		var result int = args[0]
+		for i := 0; i < n; i++ {
+			if args[i] < result {
+				result = args[i]
+			}
+		}
+		return result, nil
+	}
+}
+
+func C5UseFunc() {
+	fmt.Println(strings.Map(C5Add1, "Hal"))
+	x := []string{
+		"ss",
+		"saas",
+	}
+
+	fmt.Println(x)
+
+	fmt.Println(C5Sum(1, 2, 3))
+	fmt.Println(C5Sum(1, 2))
+	fmt.Println(C5Min())
+	fmt.Println(C5Min(1, 2, 3))
+
 }

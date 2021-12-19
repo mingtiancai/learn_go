@@ -48,6 +48,8 @@ func main() {
 	// C5PrintFunc()
 	// C5FindLink()
 	// C5ErrorF()
-	C5UseRawReturn()
+	// C5UseRawReturn()
+	// C5UseWait()
+	C5UseFunc()
 
 }
