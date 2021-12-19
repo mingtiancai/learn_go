@@ -56,3 +56,12 @@ func C5ErrorF() {
 	err := fmt.Errorf("getting : %s", s)
 	fmt.Println(err)
 }
+func RawReturn() (a int, b int) {
+	a = 1
+	b = 2
+	return
+}
+
+func C5UseRawReturn() {
+	fmt.Println(RawReturn())
+}

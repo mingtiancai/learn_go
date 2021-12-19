@@ -47,6 +47,7 @@ func main() {
 	// C4Issue()
 	// C5PrintFunc()
 	// C5FindLink()
-	C5ErrorF()
+	// C5ErrorF()
+	C5UseRawReturn()
 
 }
