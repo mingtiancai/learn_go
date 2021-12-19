@@ -50,3 +50,9 @@ func C5FindLink() {
 		fmt.Println(link)
 	}
 }
+
+func C5ErrorF() {
+	var s string = "ss"
+	err := fmt.Errorf("getting : %s", s)
+	fmt.Println(err)
+}
