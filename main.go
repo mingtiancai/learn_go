@@ -44,8 +44,9 @@ func main() {
 	// C4UseRemove()
 	// C4UseMap()
 	// C4UseJson()
-	C4Issue()
+	// C4Issue()
 	// C5PrintFunc()
 	// C5FindLink()
+	C5ErrorF()
 
 }
