@@ -52,6 +52,8 @@ func main() {
 	// C5UseWait()
 	// C5UseFunc()
 	// C5UseDefer()
-	C5UsePanic()
+	// C5UsePanic()
+	C6UseMethod()
+	// C6UsePath()
 
 }
