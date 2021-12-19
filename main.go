@@ -50,6 +50,6 @@ func main() {
 	// C5ErrorF()
 	// C5UseRawReturn()
 	// C5UseWait()
-	C5UseFunc()
+	// C5UseFunc()
 
 }
