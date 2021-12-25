@@ -57,6 +57,7 @@ func main() {
 	// C6UsePath()
 	// C6UseC6ColoredPoint()
 	// UseC6Cache()
-	C6UseMethodVar()
+	// C6UseMethodVar()
+	C7UseByteCounter()
 
 }
