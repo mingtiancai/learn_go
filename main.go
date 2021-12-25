@@ -58,6 +58,7 @@ func main() {
 	// C6UseC6ColoredPoint()
 	// UseC6Cache()
 	// C6UseMethodVar()
-	C7UseByteCounter()
+	// C7UseByteCounter()
+	C7UseRocket()
 
 }

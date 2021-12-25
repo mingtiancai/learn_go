@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 type ByteCounter int
 
@@ -18,4 +21,15 @@ func C7UseByteCounter() {
 	name := "do"
 	fmt.Fprintf(&c, "hello,%s", name)
 	fmt.Println(c)
+}
+
+func (r *C6Rocket) String() string {
+	res := "name:  " + r.name + " length:  " + strconv.FormatFloat(r.length, 'E', -1, 64)
+	return res
+}
+
+func C7UseRocket() {
+	rocket := C6Rocket{"changzheng", 10}
+	fmt.Println(rocket)
+	fmt.Println(rocket.String())
 }
