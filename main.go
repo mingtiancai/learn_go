@@ -59,6 +59,8 @@ func main() {
 	// UseC6Cache()
 	// C6UseMethodVar()
 	// C7UseByteCounter()
-	C7UseRocket()
+	// C7UseRocket()
+	// C7UseFlag()
+	// UseWebC1Server()
 
 }

@@ -1,8 +1,10 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"strconv"
+	"time"
 )
 
 type ByteCounter int
@@ -32,4 +34,16 @@ func C7UseRocket() {
 	rocket := C6Rocket{"changzheng", 10}
 	fmt.Println(rocket)
 	fmt.Println(rocket.String())
+}
+
+const (
+	n111 = 10
+)
+
+func C7UseFlag() {
+	var C7period = flag.Duration("period", n111*time.Second, "sleep period")
+	flag.Parse()
+	fmt.Printf("sleeping for %v...", *C7period)
+	time.Sleep(*C7period)
+	fmt.Println()
 }
