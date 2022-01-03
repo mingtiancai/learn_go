@@ -62,5 +62,6 @@ func main() {
 	// C7UseRocket()
 	// C7UseFlag()
 	// UseWebC1Server()
+	C7UseDb2()
 
 }
