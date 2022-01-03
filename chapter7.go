@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
+	"net/http"
 	"strconv"
 	"time"
 )
@@ -46,4 +48,49 @@ func C7UseFlag() {
 	fmt.Printf("sleeping for %v...", *C7period)
 	time.Sleep(*C7period)
 	fmt.Println()
+}
+
+type dollars float32
+type databasess map[string]dollars
+
+func (d dollars) String() string {
+	return fmt.Sprintf("$%.2f", d)
+}
+
+func (db databasess) ServerHttp(w http.ResponseWriter, req *http.Request) {
+	for item, price := range db {
+		fmt.Fprintf(w, "%s: %s\n", item, price)
+	}
+}
+
+func C7UseDb() {
+	db := databasess{"shoes": 50, "socks": 5}
+	http.HandleFunc("/", db.ServerHttp)
+	log.Fatal(http.ListenAndServe("localhost:8000", nil))
+}
+
+func (db databasess) list(w http.ResponseWriter, req *http.Request) {
+	for item, price := range db {
+		fmt.Fprintf(w, "%s: %s\n", item, price)
+	}
+}
+
+func (db databasess) price(w http.ResponseWriter, req *http.Request) {
+	item := req.URL.Query().Get("item")
+	price, ok := db[item]
+
+	if !ok {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintf(w, "no such item: %q\n", item)
+		return
+	}
+	fmt.Fprintf(w, "%s\n", price)
+}
+
+func C7UseDb2() {
+	db := databasess{"shoes": 50, "socks": 5}
+	mux := http.NewServeMux()
+	mux.HandleFunc("/price", db.price)
+	mux.HandleFunc("/list", db.list)
+	log.Fatal(http.ListenAndServe("localhost:8000", mux))
 }
