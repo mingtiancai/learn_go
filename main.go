@@ -66,5 +66,7 @@ func main() {
 	// C8UseFib()
 	// C8ConcurrentServer()
 	// C8NetCat()
-	C8UsePipeLine()
+	// C8UsePipeLine()
+	// C8UsePipeLine2()
+	C8UseCh()
 }

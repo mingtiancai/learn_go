@@ -112,3 +112,45 @@ func C8UsePipeLine() {
 		fmt.Println(x)
 	}
 }
+
+func C8Counter(out chan<- int) {
+	for x := 0; x < 100; x++ {
+		out <- x
+	}
+	close(out)
+}
+
+func C8Squares(out chan<- int, in <-chan int) {
+	for v := range in {
+		out <- v * v
+	}
+	close(out)
+}
+
+func C8Printer(in <-chan int) {
+	for v := range in {
+		fmt.Println(v)
+	}
+}
+
+func C8UsePipeLine2() {
+	naturals := make(chan int)
+	squares := make(chan int)
+
+	go C8Counter(naturals)
+	go C8Squares(squares, naturals)
+	C8Printer(squares)
+}
+
+func C8UseCh() {
+	ch := make(chan int, 1)
+	for i := 0; i < 10; i++ {
+		select {
+		case x := <-ch:
+			fmt.Println(x)
+		case ch <- i:
+
+		}
+
+	}
+}
